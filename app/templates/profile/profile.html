@@ -1,3 +1,62 @@
+
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+
+<!-- News jumbotron -->
+<div class="jumbotron text-center hoverable p-4">
+
+  <!-- Grid row -->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+      <!-- Featured image -->
+      <div class="view overlay">
+       {% if user.profile_pic_path %}
+
+        <img src="{{url_for('static',filename=user.profile_pic_path)}}" class="img-fluid" alt="Profile Image">
+        
+         {%else%}
+
+    <h5>You Do Not Have a Profile Picture Set!Kindly Upload Photo.</h6>
+
+    {% endif %}
+
+
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+</div>
+<!-- Grid column -->
+
+<!-- Grid column -->
+<div class="col-md-7 text-md-left ml-3 mt-3">
+
+  <!-- Excerpt -->
+  <a href="#!" class="green-text">
+    <h3 class="h6 pb-1"><i class="fas fa-user-cog"></i> {{user.username| capitalize}} </h3>
+  </a>
+
+  <h4 class="h4 mb-4" style='text-decoration:underline;'>My Bio...</h4>
+
+   {% if user.bio %}
+
+  <p class="font-weight-normal">{{user.bio| capitalize}}</p>
+  {% else %}
+  <p class="font-weight-normal">You have No Bio.</p>
+
+   {% endif %}
+
+
+
+<!-- {% extends 'base.html'%}
+
+
 <div class="col-md-4">
     {% if user.profile_pic_path %}
 
@@ -15,4 +74,4 @@
       <input type="submit">
     </form>
       {% endif %}
-  </div>
+  </div> -->
