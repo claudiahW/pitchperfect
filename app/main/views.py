@@ -101,28 +101,67 @@ def profile(uname):
         
     return render_template("profile/profile.html", user = user, pitch=pitch)
 
+
+@main.route('/user/<uname>/pitches',methods = ['GET','POST'])
+@login_required
+def update_profile(uname):
+    user = User.query.filter_by(username = uname).first()
+    
+    if user is None:
+        abort(404)
+
+    form = PitchForm()
+
+    if form.validate_on_submit():
+        pitch = form.my_pitches.data
+        category = form.my_category.data
+        
+        new_pitch=Pitch(pitch=pitch,category=category,user_id=current_user.id)
+        
+        new_pitch.save_pitch()
+        return redirect(url_for('.profile',uname=user.username))
+
+    return render_template('profile/update.html',form =form)
+
+@main.route('/user/<uname>/bio',methods = ['GET','POST'])
+@login_required
+def update_bio(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
+
+    bioform = BioForm()
+
+    if bioform.validate_on_submit():
+        user.bio = bioform.bio.data
+
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('.profile',uname=user.username))
+
+    return render_template('profile/bio.html',bioform=bioform)
     
 
 
-
    
-    if form.validate_on_submit():
-        title = form.title.data
-        review = form.review.data
+#     if form.validate_on_submit():
+#         title = form.title.data
+#         review = form.review.data
 
-        # Updated review instance
-        new_review = Review(pitch_id=pitch.id,pitch_title=title,image_path=pitch.poster,pitch_review=review,user=current_user)
+#         # Updated review instance
+#         new_review = Review(pitch_id=pitch.id,pitch_title=title,image_path=pitch.poster,pitch_review=review,user=current_user)
 
-        # save review method
-        new_review.save_review()
-        return redirect(url_for('.pitch',id = pitch.id ))
+#         # save review method
+#         new_review.save_review()
+#         return redirect(url_for('.pitch',id = pitch.id ))
 
-    title = f'{pitch.title} review'
-    return render_template('new_review.html',title = title, review_form=form, pitch=pitch)    
-@main.route('/review/<int:id>')
-def single_review(id):
-    review=Review.query.get(id)
-    if review is None:
-        abort(404)
-    format_review = markdown2.markdown(review.movie_review,extras=["code-friendly", "fenced-code-blocks"])
-    return render_template('review.html',review = review,format_review=format_review)
+#     title = f'{pitch.title} review'
+#     return render_template('new_review.html',title = title, review_form=form, pitch=pitch)    
+# @main.route('/review/<int:id>')
+# def single_review(id):
+#     review=Review.query.get(id)
+#     if review is None:
+#         abort(404)
+#     format_review = markdown2.markdown(review.movie_review,extras=["code-friendly", "fenced-code-blocks"])
+#     return render_template('review.html',review = review,format_review=format_review)
