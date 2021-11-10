@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,app
 from flask_bootstrap import Bootstrap
 from config import config_options 
 from flask_sqlalchemy import SQLAlchemy
@@ -18,8 +18,6 @@ mail =Mail
 def create_app(config_name):
     app = Flask(__name__)
 
-    mail.init_app(app) 
-
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
 
@@ -27,6 +25,7 @@ def create_app(config_name):
     bootstrap.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
+    mail.init_app(app) 
     
 
      # Registering the blueprint
@@ -40,4 +39,4 @@ def create_app(config_name):
 
     # Will add the views and forms
 
-    return app 
+    # return app 
