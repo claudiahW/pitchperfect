@@ -52,7 +52,47 @@
 
    {% endif %}
 
+   <p class="font-weight-normal"><a><strong>Last Edit :</strong></a> 19/08/2016</p>
 
+   <a href="{{url_for('main.update_bio',uname=user.username)}}" class="btn btn-success">Edit Bio</a>
+   <a href="{{url_for('main.update_profile',uname=user.username)}}" class="btn btn-success">New Pitch</a>
+  
+   {% if user == current_user %}
+     <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+   <input type="file"  name="photo" class="form-group" required><br>
+   <input class='form-group' type='submit'>
+   </form>
+   {% endif %}
+ </div>
+ <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+
+</div>
+<!-- News jumbotron -->
+
+<h2 class='amber-text' style='text-decoration:underline;'>My Pitches</h2>
+ {% if current_user %}
+{% for items in pitch[::-1] %}
+
+<div class="container">
+  <div class='row'>
+  <div class='col-sm-9 col-md-9 col-lg-9'>
+  
+<!-- Card -->
+<div class="card card-cascade wider">
+
+  <!-- Card image -->
+  <div class="view view-cascade gradient-card-header peach-gradient">
+
+    <!-- Title -->
+    <h2 class="card-header-title text-center mb-3">{{items.author.username| capitalize}}</h2>
+    <!-- Text -->
+    <p class="text-center mb-0"><i class="fas fa-calendar mr-2"></i>{{items.posted.strftime('%Y-%m-%d')}}</p>
+    <p class="text-center mb-0"><i class="fas fa-list mr-2"></i>{{items.category}}</p>
+
+  </div>
 
 <!-- {% extends 'base.html'%}
 
