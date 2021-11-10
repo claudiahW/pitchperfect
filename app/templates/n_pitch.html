@@ -5,33 +5,8 @@
 
 <div class="container mt-3">
     <div class="col-md-12">
-{{ wtf.quick_form(comment_form) }}
+{{ wtf.quick_form(review_form) }}
  </div>
- </div>
-
- <hr>
- <br>
-
-<div class="container">
-
- <h2 class='text-center' style='text-decoration:underline;'>Comments</h2>
-
-
-{% for items in comment %}
-
-<blockquote class="blockquote">
-  <p class="mb-0">{{items.comments}}</p>
-   <footer class="blockquote-footer mb-3"><cite title="Source Title">{{items.user_id}}</cite></footer>
-</blockquote>
- 
-
-<hr>
-
-{% endfor %}
-
 </div>
- 
-
-
 
 {% endblock  %}
