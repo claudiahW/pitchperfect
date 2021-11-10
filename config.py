@@ -2,10 +2,10 @@ import os
 
 class Config:
 
-    UPLOADED_PHOTOS_DEST ='app/static/photos'
     
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://claudbae:12345@localhost/pitchperfect'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://claudbae:1220@localhost/pitchperfect'
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
 
 #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -13,13 +13,14 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")  
+    pass
 
-    # simple mde  configurations
-    SIMPLEMDE_JS_IIFE = True
-    SIMPLEMDE_USE_CDN = True
+    # # simple mde  configurations
+    # SIMPLEMDE_JS_IIFE = True
+    # SIMPLEMDE_USE_CDN = True
 
 class ProdConfig(Config):
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://claudbae:1220@localhost/pitchperfect_test'

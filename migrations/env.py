@@ -2,13 +2,11 @@ from __future__ import with_statement
 
 import logging
 from logging.config import fileConfig
-
-from flask import current_app
-
 from alembic import context
+from flask import current_app
+from sqlalchemy import engine_from_config
+from sqlalchemy import pool 
 
-# this is the Alembic Config object, which provides
-# access to the values within the .ini file in use.
 config = context.config
 
 # Interpret the config file for Python logging.
@@ -70,7 +68,11 @@ def run_migrations_online():
                 directives[:] = []
                 logger.info('No changes in schema detected.')
 
-    connectable = current_app.extensions['migrate'].db.engine
+    connectable = engine_from_config(
+        config.get_section(config.config_ini_section),
+        prefix='sqlalchemy.',
+        poolclass=pool.NullPool,
+    )   
 
     with connectable.connect() as connection:
         context.configure(
