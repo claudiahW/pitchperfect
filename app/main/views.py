@@ -153,7 +153,7 @@ def pitch_page():
 def increment(like,pitch_id):
     all_likes = Pitch.query.filter_by(like,pitch_id).all()
     likes = int(all_likes) + 1
-    user_id = user_id
+    user_id = user_id 
     new_like = Pitch(user_id=user_id,pitch_id=pitch_id,likes=like)
     new_like.save_pitch()
     
@@ -161,23 +161,3 @@ def increment(like,pitch_id):
 
 
    
-#     if form.validate_on_submit():
-#         title = form.title.data
-#         review = form.review.data
-
-#         # Updated review instance
-#         new_review = Review(pitch_id=pitch.id,pitch_title=title,image_path=pitch.poster,pitch_review=review,user=current_user)
-
-#         # save review method
-#         new_review.save_review()
-#         return redirect(url_for('.pitch',id = pitch.id ))
-
-#     title = f'{pitch.title} review'
-#     return render_template('new_review.html',title = title, review_form=form, pitch=pitch)    
-# @main.route('/review/<int:id>')
-# def single_review(id):
-#     review=Review.query.get(id)
-#     if review is None:
-#         abort(404)
-#     format_review = markdown2.markdown(review.movie_review,extras=["code-friendly", "fenced-code-blocks"])
-#     return render_template('review.html',review = review,format_review=format_review)
