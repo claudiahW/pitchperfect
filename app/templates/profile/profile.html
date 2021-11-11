@@ -48,7 +48,7 @@
 
   <p class="font-weight-normal">{{user.bio| capitalize}}</p>
   {% else %}
-  <p class="font-weight-normal">You have No Bio.</p>
+  <p class="font-weight-normal">Bio is empty.</p>
 
    {% endif %}
 
@@ -83,7 +83,7 @@
 <div class="card card-cascade wider">
 
   <!-- Card image -->
-  <div class="view view-cascade gradient-card-header peach-gradient">
+  <div class="view view-cascade gradient-card-header btn-green">
 
     <!-- Title -->
     <h2 class="card-header-title text-center mb-3">{{items.author.username| capitalize}}</h2>
@@ -99,7 +99,7 @@
     <!-- Text -->
     <h4 class="card-text text-dark">{{items.pitch}}</h4>
     <!-- Link -->
-    <a href="{{url_for('main.leave_comment', pitch_id = items.id)}}" class="orange-text d-flex flex-row-reverse p-2">
+    <a href="{{url_for('main.leave_comment', pitch_id = items.id)}}" class="green-text d-flex flex-row-reverse p-2">
       <h5 class="waves-effect waves-light">Comments<i class="far fa-comments ml-2"></i></h5>
     </a>
 

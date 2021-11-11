@@ -6,7 +6,7 @@
 
 <h2 class='amber-text' style='text-decoration:underline;'>Marketing Pitches </h2>
 
-<h2><a class="btn peach-gradient btn-lg text-center" href="{{url_for('main.new_pitch')}}"> Write a new pitch</a></h2>
+<h2><a class="btn btn-green btn-lg text-center" href="{{url_for('main.new_pitch')}}"> Write a new pitch</a></h2>
 
 {% for items in marketing[::-1] %}
 <br>
@@ -19,7 +19,7 @@
 <div class="card card-cascade wider">
 
   <!-- Card image -->
-  <div class="view view-cascade gradient-card-header peach-gradient">
+  <div class="view view-cascade gradient-card-header btn-green">
 
     <!-- Title -->
     <h2 class="card-header-title text-center mb-3">{{items.author.username| capitalize}}</h2>
@@ -35,7 +35,7 @@
     <!-- Text -->
     <h4 class="card-text text-dark">{{items.pitch}}</h4>
     <!-- Link -->
-    <a href="{{url_for('main.leave_comment', pitch_id = items.id)}}" class="orange-text d-flex flex-row-reverse p-2">
+    <a href="{{url_for('main.leave_comment', pitch_id = items.id)}}" class="purple-text d-flex flex-row-reverse p-2">
       <h5 class="waves-effect waves-light">Comments<i class="far fa-comments ml-2"></i></h5>
     </a>
 

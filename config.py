@@ -3,8 +3,8 @@ import os
 class Config:
 
     
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://claudbae:1220@localhost/pitchperfect'
+    SECRET_KEY = 'SwanSea06'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://claudbae:12345@localhost/pitch2'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
 #  email configurations
@@ -20,14 +20,14 @@ class Config:
     # SIMPLEMDE_USE_CDN = True
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://claudbae:1220@localhost/pitchperfect_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://claudbae:12345@localhost/pitch2_test'
 
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://claudbae:1220@localhost/pitchperfect'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://claudbae:12345@localhost/pitch2'
     DEBUG = True
 
 

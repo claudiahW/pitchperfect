@@ -4,9 +4,9 @@
 
 <div class="container text-center">
 
-<h1>AVAILABLE CATEGORIES</h1>
+<h1 >AVAILABLE CATEGORIES</h1>
 
-<h2><a class="btn peach-gradient btn-lg text-center" href="{{url_for('main.new_pitch')}}"> Write your pitch</a></h2>
+
     
 </div>
 
@@ -14,16 +14,13 @@
 
     <!-- Card -->
 <div class="card card-image"
-  style="background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2Fswlh%2Felevator-pitch-from-cradle-to-grave-1429e4cb791a&psig=AOvVaw3R38CPDhWmksb-BchTKXB1&ust=1600602157497000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKDMxO2R9esCFQAAAAAdAAAAABAJ);">
+style="background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2Fswlh%2Felevator-pitch-from-cradle-to-grave-1429e4cb791a&psig=AOvVaw3R38CPDhWmksb-BchTKXB1&ust=1600602157497000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKDMxO2R9esCFQAAAAAdAAAAABAJ);">
 
-  <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+  <div class="text-white text-left d-flex align-items-center rgba-purple-strong py-5 px-4" >
     <div>
-      <h5 class="pink-text"><i class="fas fa-chart-pie"></i> Marketing</h5>
-      <h3 class="card-title pt-2"><strong>Marketing Pitches</strong></h3>
-      <p>Simply defined, it's a line of talk that is designed to persuade someone, such as a presentation 
-      to sell a product or service. But it can also be about selling yourself, to gain new clients or to 
-      promote your business.</p>
-      <a href='/pitches/marketing_pitches' class="btn btn-pink"><i class="fas fa-clone left"></i> View Pitches</a>
+      <h3 class="card-title pt-2"> <strong>Marketing Pitches</strong></h3>
+      <p>Showcase your marketing prowess by uploading your marketing pitch</p>
+      <a href='/pitches/marketing_pitches' class="btn btn-dark"><i class="fas fa-clone left"></i> View Pitches</a>
     </div>
   </div>
 
@@ -36,13 +33,12 @@
   style="background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fsloanreview.mit.edu%2Farticle%2Fhow-women-can-improve-their-venture-pitch-outcomes%2F&psig=AOvVaw2x7eysuzM6UWWjaMkgRd2S&ust=1600602317786000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIDYpbiS9esCFQAAAAAdAAAAABAD);">
 
   <!-- Content -->
-  <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+  <div class="text-white text-left d-flex align-items-center rgba-purple-strong py-5 px-4">
     <div>
-      <h5 class="text-warning"><i class="fas fa-comments-dollar"></i></i> Entertainment</h5>
+      
       <h3 class="card-title pt-2"><strong>Entertainment Pitches</strong></h3>
-      <p>Moving up the corporate ladder may not be easy. Consistent hard work and high performance
-       are a given. Equally important is the promotion talk that takes place with your boss.</p>
-      <a href='/pitches/entertainment_pitches' class="btn btn-warning"><i class="fas fa-clone left"></i> View Pitches</a>
+      <p>This category is perfect for poets,song writers and entertainers in general</p>
+      <a href='/pitches/entertainment_pitches' class="btn btn-dark"><i class="fas fa-clone left"></i> View Pitches</a>
     </div>
   </div>
 
@@ -55,17 +51,17 @@
 <div class="card card-image"
   style="background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hawaii.edu%2Ftuition%2Fscholarships%2F&psig=AOvVaw2OFavo0i5VlAB12r7Kjkoo&ust=1600602369738000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDRv9iS9esCFQAAAAAdAAAAABAD);">
 
-  <!-- Content -->
-  <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+  
+  <div class="text-white text-left d-flex align-items-center rgba-purple-strong py-5 px-4">
     <div>
-      <h5 class="text-secondary"><i class="fas fa-user-graduate"></i> Sales </h5>
+      
       <h3 class="card-title pt-2"><strong>Sales pitches </strong></h3>
-      <p>Have a brilliant idea? Write it down and rehearse to win the Scholarship to persue your dreams,
-       for a chance to bring your idea to life. Explore this unique opportunity to make your dreams
-        come true.!.</p>
-      <a href='/pitches/sales_pitches' class="btn btn-secondary"><i class="fas fa-clone left"></i> View Pitches</a>
+      <p>Can you deliver on sales?Here are some sales pitches for you</p>
+      <a href='/pitches/sales_pitches' class="btn btn-dark"><i class="fas fa-clone left"></i> View Pitches</a>
     </div>
   </div>
+
+  <h2><a class="btn btn-lg text-center btn-green" href="{{url_for('main.new_pitch')}}"> Submit pitch</a></h2>
 
 </div>
 <!-- Card -->
@@ -75,7 +71,8 @@
 <br>
 
 <!-- Footer -->
-<footer class="page-footer font-small secondary-color">
+<!-- <footer class="page-footer font-small secondary-color"> -->
+<footer class ="p-3 mb-2 bg-danger text-white ">  
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">Copyright (c) 2021 Claudiah Wanjiru.  </div>
