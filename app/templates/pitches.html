@@ -1,60 +1,19 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+{% import 'bootstrap/wtf.html' as wtf%}
 
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
 {% block content %}
+ <body>
+  <div  class="container">
 
-<div class='container'>
-
-<h1 class='amber-text' style='text-decoration:underline;'>ALL PITCHES </h1>
-
-<h2><a class="btn btn-green btn-lg text-center" href="{{url_for('main.new_pitch')}}"> Write a new pitch</a></h2>
-
-{% for items in pitches[::-1] %}
-
-<br>
-
-<div class="container">
-  <div class='row'>
-  <div class='col-sm-9 col-md-9 col-lg-9'>
-  
-<!-- Card -->
-<div class="card card-cascade wider">
-
-  <!-- Card image -->
-  <div class="view view-cascade gradient-card-header btn-green">
-
-    <!-- Title -->
-    <h2 class="card-header-title text-center mb-3">{{items.author.username| capitalize}}</h2>
-    <!-- Text -->
-    <p class="text-center mb-0"><i class="fas fa-calendar mr-2"></i>{{items.posted.strftime('%Y-%m-%d')}}</p>
-    <p class="text-center mb-0"><i class="fas fa-list mr-2"></i>{{items.category}}</p>
-
+    {{wtf.quick_form(pitch_form)}}
+    
   </div>
+ </body> 
 
-  <!-- Card content -->
-  <div class="card-body card-body-cascade text-center">
 
-    <!-- Text -->
-    <h4 class="card-text text-dark">{{items.pitch}}</h4>
-    <!-- Link -->
-    <a href="{{url_for('main.leave_comment', pitch_id = items.id)}}" class="green-text d-flex flex-row-reverse p-2">
-      <h5 class="waves-effect waves-light">Comments<i class="far fa-comments ml-2"></i></h5>
-    </a>
-
-    <div class="col-md-4 upvote button">
-      <a href="{{url_for('main.like',id = pitch.id)}}">Upvotes: {{pitch.upvote.count()}}</a>
-    </div>
-    <div class="col-md-4 downvote ">
-      <a href="{{url_for('main.dislike',id = pitch.id)}}"> <i class="fa fa-thumbs-down"></i> Downvotes:{{pitch.downvote.count()}}</a>
-    </div>
-  </div>
-  <!-- Card content -->
-
-</div>
-<!-- Card -->
-
-</div>
-</div>
-</div>
-
-{% endfor %}
-{% endblock  %}
+{%endblock%}
